@@ -1,0 +1,14 @@
+div.table-responsive
+	table.table.table-bordered
+		thead
+			tr
+				th Food
+				th(ng-repeat="nutrient in vm.foods[0].report.food.nutrients")
+					{{nutrient.name}}
+		tbody
+			tr(ng-repeat="food in vm.foods")
+				th 
+					{{food.report.food.name}}
+				td(ng-repeat="nutrient in food.report.food.nutrients")
+					{{nutrient.value}} {{nutrient.unit}}
+button(ng-click="vm.addFood('09218')") Add

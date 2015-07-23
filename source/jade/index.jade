@@ -4,5 +4,9 @@ html(ng-app="app" ng-strict-di)
 	body
 		div.container
 			h1 Hello
+			section.row
+				div.col-xs-12
+					div(content-directive)
+						|	{{vm.data | json}}
 		footer
 			script(src="/javascript/scripts.js")
