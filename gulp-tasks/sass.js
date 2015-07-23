@@ -7,7 +7,7 @@ var concat		= require('gulp-concat'),
 
 var config = {
 	bootstrapDir : './bower_components/bootstrap-sass',
-	publicDir: './app',
+	publicDir: './dist',
 	sourceDir: './source'
 };
 

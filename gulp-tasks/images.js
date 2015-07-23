@@ -4,7 +4,7 @@ var gulp		= require('gulp'),
 	imagemin	= require('gulp-imagemin');
 
 var config = {
-	publicDir: './app',
+	publicDir: './dist',
 	sourceDir: './source'
 };
 

@@ -6,7 +6,7 @@ var concat		= require('gulp-concat'),
 	sourcemaps	= require('gulp-sourcemaps');
 
 var config = {
-	publicDir: './app',
+	publicDir: './dist',
 	sourceDir: './source'
 };
 
