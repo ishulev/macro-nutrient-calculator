@@ -4,31 +4,30 @@
 	//Documentation: https://github.com/johnpapa/angular-styleguide#directives
 	angular
 		.module('app')
-		.directive('contentDirective', contentDirectiveFunction);
+		.directive('contentSearchDirective', contentSearchDirectiveFunction);
 
 
-	function contentDirectiveFunction() {
+	function contentSearchDirectiveFunction() {
 		var directive = {
 			restict: 'EA',
 			controller: Controller,
 			controllerAs: 'vm',
 			scope: true,
-			templateUrl: 'templates/data-template.html'
+			templateUrl: 'templates/data-search-template.html'
 		};
 		return directive;
 	}
 
-	Controller.$inject = ['dataFactory'];
+	Controller.$inject = ['dataSearchFactory'];
 
-	function Controller(dataFactory) {
+	function Controller(dataSearchFactory) {
 		var vm = this;
-		var food_id = '09037';
-
+		
 		vm.foods = [];
-		dataFactory.getFoodId(food_id);
+		dataSearchFactory.getFoodId(food_id);
 
 		function getAllData(){
-			return dataFactory
+			return dataSearchFactory
 				.getData()
 				.then(function(data) {
 					vm.foods.push(data);
@@ -40,10 +39,10 @@
 
 		vm.addFood = function(food_id)
 		{
-			dataFactory.getFoodId(food_id);
+			dataSearchFactory.getFoodId(food_id);
 			getAllData();
 		}
 
-		getAllData();
+		// getAllData();
 	}
 })();
