@@ -10,7 +10,7 @@ var concat		= require('gulp-concat'),
 var config = {
 	angularDir: './bower_components/angular',
 	angularSanitizeDir: './bower_components/angular-sanitize',
-	publicDir: './app',
+	publicDir: './dist',
 	sourceDir: './source'
 };
 

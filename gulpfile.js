@@ -7,7 +7,7 @@ var gulp		= require('gulp'),
 	server		= require('gulp-express');
 
 var config = {
-	publicDir: './app',
+	publicDir: './dist',
 	sourceDir: './source'
 };
 
@@ -24,4 +24,4 @@ gulp.task('watch', function() {
 });
 
 // create a default task and just log a message
-gulp.task('default', ['html-build', 'css-build', 'js-build', 'images', 'data', 'server-start', 'watch']);
+gulp.task('default', ['html-build', 'css-build', 'js-build', 'images', 'server-start', 'watch']);
