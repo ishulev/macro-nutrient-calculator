@@ -18,28 +18,32 @@
 		return directive;
 	}
 
-	Controller.$inject = ['dataSearchFactory'];
+	Controller.$inject = ['$rootScope', 'dataSearchFactory'];
 
-	function Controller(dataSearchFactory) {
+	function Controller($rootScope, dataSearchFactory) {
 		var vm = this;
 		
-		vm.foods = [];
-		dataSearchFactory.getFoodId(food_id);
+		vm.results = {};
 
 		function getAllData(){
 			return dataSearchFactory
 				.getData()
 				.then(function(data) {
-					vm.foods.push(data);
+					vm.results = data;
 				})
 				.catch(function(error) {
 					console.log(error);
 				});
 		}
 
-		vm.addFood = function(food_id)
+		vm.addItem = function(ndbno){
+			console.log(ndbno);
+			$rootScope.$broadcast('addFoodToTable', ndbno);
+		}
+
+		vm.sendQuery = function()
 		{
-			dataSearchFactory.getFoodId(food_id);
+			dataSearchFactory.setFoodQuery(vm.searchQuery);
 			getAllData();
 		}
 

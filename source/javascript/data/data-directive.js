@@ -18,9 +18,9 @@
 		return directive;
 	}
 
-	Controller.$inject = ['dataFactory'];
+	Controller.$inject = ['$scope', 'dataFactory'];
 
-	function Controller(dataFactory) {
+	function Controller($scope, dataFactory) {
 		var vm = this;
 		var food_id = '09037';
 
@@ -38,11 +38,16 @@
 				});
 		}
 
-		vm.addFood = function(food_id)
+		function addFood(food_id)
 		{
 			dataFactory.getFoodId(food_id);
 			getAllData();
 		}
+
+		$scope.$on('addFoodToTable', function(event, data) {
+			console.log(data);
+			addFood(data);
+		});
 
 		getAllData();
 	}

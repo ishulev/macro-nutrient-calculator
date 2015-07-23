@@ -1,5 +1,11 @@
-div.col-lg-6
-	div.input-group
-		input.form-control(type="text" placeholder="Search for...")
-		span.input-group-btn
-			button.btn.btn-default(type="button") Go!
+section.row
+	div.col-xs-6
+		div.input-group
+			input.form-control(type="text" ng-model="vm.searchQuery" placeholder="Search for...")
+			span.input-group-btn
+				button.btn.btn-default(type="button" ng-click="vm.sendQuery()") Go!
+section.row
+	div.col-xs-12
+		div.list-group
+			a.list-group-item(href="#" ng-repeat="food in vm.results.list.item" ng-click="vm.addItem(food.ndbno)")
+				{{food.name}}
