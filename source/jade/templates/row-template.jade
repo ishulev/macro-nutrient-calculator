@@ -1,0 +1,16 @@
+tr
+	th
+		{{food.name}}
+	td
+		input.form-control(ng-model="quantity")
+	td
+		div.radio
+			label
+				input(type="radio" name="measures-{{food.ndbno}}" value="100" ng-model="quantity" checked)
+				|100g
+		div.radio(ng-repeat="measure in food.nutrients[0].measures")
+			label
+				input(type="radio" name="measures-{{food.ndbno}}" ng-value="measure.eqv" ng-model="quantity")
+				{{measure.label}}
+	td(ng-repeat="nutrient in food.nutrients | filter: {group : 'Proximates'}")
+		{{nutrient.name}} {{((nutrient.value*quantity)/100 | number: 2)}} {{nutrient.unit}}

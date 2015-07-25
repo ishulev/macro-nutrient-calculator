@@ -32,6 +32,7 @@
 				.getData()
 				.then(function(data) {
 					vm.foods.push(data);
+					console.log(data);
 				})
 				.catch(function(error) {
 					console.log(error);

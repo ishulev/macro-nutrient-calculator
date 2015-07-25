@@ -1,0 +1,5 @@
+tr
+	th
+		|Result
+	//- td(ng-repeat="nutrient in food.nutrients")
+		{{nutrient.name}} {{((nutrient.value*vm.quantity)/100 | number: 2)}} {{nutrient.unit}}
