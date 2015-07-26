@@ -23,6 +23,7 @@
 	function Controller($scope, dataFactory) {
 		var vm = this;
 		var food_id = '09037';
+		vm.nutrients = [];
 
 		vm.foods = [];
 		dataFactory.getFoodId(food_id);
@@ -32,7 +33,7 @@
 				.getData()
 				.then(function(data) {
 					vm.foods.push(data);
-					console.log(data);
+					// console.log(data);
 				})
 				.catch(function(error) {
 					console.log(error);
@@ -46,10 +47,8 @@
 		}
 
 		$scope.$on('addFoodToTable', function(event, data) {
-			console.log(data);
+			// console.log(data);
 			addFood(data);
 		});
-
-		getAllData();
 	}
 })();

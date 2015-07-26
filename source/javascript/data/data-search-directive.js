@@ -37,7 +37,6 @@
 		}
 
 		vm.addItem = function(ndbno){
-			console.log(ndbno);
 			$rootScope.$broadcast('addFoodToTable', ndbno);
 		}
 
