@@ -20,6 +20,7 @@
 
 		function calculateNutrition(nutrients){
 			var combinedNutrients = {};
+			console.log(nutrients);
 			for(var i=0; i<nutrients.length; i++){
 				var currentNutrientSet = nutrients[i];
 				var quantity = currentNutrientSet.quantity;
@@ -35,7 +36,8 @@
 					// console.log(proximates[j]);
 					if(i>0)
 					{
-						combinedNutrients[nutrientName].value += realValue;
+						if(combinedNutrients[nutrientName])
+							combinedNutrients[nutrientName].value += realValue;
 					}
 					else
 					{
