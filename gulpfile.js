@@ -19,9 +19,10 @@ gulp.task('server-start', function() {
 gulp.task('watch', function() {
 	gulp.watch(path.join(config.sourceDir, 'javascript/**/*.js'), ['jshint', 'js-build']);
 	gulp.watch(path.join(config.sourceDir, 'scss/**/*.scss'), ['css-build']);
-	gulp.watch(path.join(config.sourceDir, 'jade/**/*.jade'), ['html-build']);
+	gulp.watch(path.join(config.sourceDir, 'jade/index.jade'), ['html-build']);
+	gulp.watch(path.join(config.sourceDir, 'jade/templates/*.jade'), ['templates']);
 	gulp.watch(path.join(config.publicDir, '**/*'), server.notify);
 });
 
 // create a default task and just log a message
-gulp.task('default', ['html-build', 'css-build', 'js-build', 'server-start', 'watch']);
+gulp.task('default', ['html-build', 'css-build', 'js-build', 'templates', 'server-start', 'watch']);

@@ -1,0 +1,6 @@
+tr
+	th
+		|Result
+	td
+	td(ng-repeat="(name, nutrient) in combinedNutrition")
+		{{name}} - {{nutrient.value}} {{nutrient.unit}} ({{nutrient.percentage | number:0}}%)
