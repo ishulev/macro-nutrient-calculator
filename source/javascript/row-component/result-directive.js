@@ -18,9 +18,26 @@
 		};
 		return directive;
 
+		function calculatePercentage(combinedNutrients)
+		{
+			var proteinCalories = combinedNutrients["Protein"].value*4;
+			var carbCalories = combinedNutrients["Carbohydrate, by difference"].value*4;
+			var fatCalories = combinedNutrients["Total lipid (fat)"].value*9;
+			var calories = proteinCalories + carbCalories + fatCalories;
+
+			var proteinPercentage = (proteinCalories/calories)*100;
+			var carbPercentage = (carbCalories/calories)*100;
+			var fatPercentage = (fatCalories/calories)*100;
+
+			combinedNutrients["Protein"].percentage = proteinPercentage;
+			combinedNutrients["Carbohydrate, by difference"].percentage = carbPercentage;
+			combinedNutrients["Total lipid (fat)"].percentage = fatPercentage;
+			
+			return combinedNutrients;
+		}
+
 		function calculateNutrition(nutrients){
 			var combinedNutrients = {};
-			console.log(nutrients);
 			for(var i=0; i<nutrients.length; i++){
 				var currentNutrientSet = nutrients[i];
 				var quantity = currentNutrientSet.quantity;
@@ -46,6 +63,7 @@
 					// combinedNutrients[proximates[j].name].value += proximates[j].value;
 				}
 			}
+			combinedNutrients = calculatePercentage(combinedNutrients);
 			return combinedNutrients;
 		};
 
