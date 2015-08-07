@@ -22,11 +22,9 @@
 
 	function Controller($scope, dataFactory) {
 		var vm = this;
-		var food_id = '09037';
 		vm.nutrients = [];
 
 		vm.foods = [];
-		dataFactory.getFoodId(food_id);
 
 		function getAllData(){
 			return dataFactory
@@ -47,8 +45,12 @@
 		}
 
 		$scope.$on('addFoodToTable', function(event, data) {
-			// console.log(data);
 			addFood(data);
 		});
+		// $scope.$on('removeFood', function(event, data) {
+		// 	vm.foods.splice(data, 1);
+		// 	//Needed for the removal of the item from the table
+		// 	$scope.$apply();
+		// });
 	}
 })();

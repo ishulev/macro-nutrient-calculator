@@ -2,7 +2,7 @@ tr
 	th
 		{{food.name}}
 	td
-		input.form-control(type="number" string-to-number ng-model="vm.quantity" ng-change="linkFunction()")
+		input.form-control(type="number" string-to-number ng-model="vm.quantity" ng-change="vm.linkFunction()")
 	td
 		div.radio
 			label
@@ -14,3 +14,5 @@ tr
 				{{measure.label}}
 	td(ng-repeat="nutrient in food.nutrients | filter: {group : 'Proximates'}")
 		{{nutrient.name}} {{((nutrient.value*vm.quantity)/100 | number: 2)}} {{nutrient.unit}}
+	td
+		button.btn.btn-danger(row-removal) Remove

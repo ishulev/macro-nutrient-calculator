@@ -37,6 +37,7 @@
 		}
 
 		function calculateNutrition(nutrients){
+			console.log(nutrients);
 			var combinedNutrients = {};
 			for(var i=0; i<nutrients.length; i++){
 				var currentNutrientSet = nutrients[i];
@@ -69,9 +70,8 @@
 
 		function link(scope, element, attrs, contentDirectiveCtrl){
 			scope.$on('changeQuantity', function(){
-				// console.log(data);
+				// console.log('chaaanged');
 				scope.combinedNutrition = calculateNutrition(contentDirectiveCtrl.nutrients);
-				// console.log(contentDirectiveCtrl.nutrients);
 			})
 		};
 	}
