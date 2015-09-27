@@ -23,7 +23,6 @@
 				controllers[1].foods.splice(index, 1);
 				$rootScope.$broadcast('changeQuantity', 0);
 				scope.$apply();
-
 			})
 		}
 	}
