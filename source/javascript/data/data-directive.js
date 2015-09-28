@@ -32,6 +32,7 @@
 				.then(function(data) {
 					vm.foods.push(data);
 					$rootScope.searched = true;
+					$rootScope.$broadcast('changeQuantity');
 				})
 				.catch(function(error) {
 					console.log(error);

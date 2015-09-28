@@ -35,7 +35,8 @@
 				contentDirectiveCtrl.nutrients[currentPosition-1].quantity = parseInt(scope.vm.quantity);
 				$rootScope.$broadcast('changeQuantity', scope.vm.quantity);
 			}
-			// var combinedNutrients = combineNutrients(scope.food.nutrients);
+			contentDirectiveCtrl.nutrients[currentPosition-1].quantity = parseInt(scope.vm.quantity);
+			$rootScope.$broadcast('changeQuantity', scope.vm.quantity);
 		};
 
 		function combineNutrients(nutrients){

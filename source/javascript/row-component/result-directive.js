@@ -72,8 +72,12 @@
 		function link(scope, element, attrs, contentDirectiveCtrl){
 			scope.$on('changeQuantity', function(){
 				if($rootScope.searched)
+					console.log(contentDirectiveCtrl.nutrients);
 					scope.combinedNutrition = calculateNutrition(contentDirectiveCtrl.nutrients);
-			})
+			});
+			// scope.$on('addFoodToTable', function(){
+			// 	// scope.combinedNutrition = calculateNutrition(contentDirectiveCtrl.nutrients);
+			// });
 		};
 	}
 })();
