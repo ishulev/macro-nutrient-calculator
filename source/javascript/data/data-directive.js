@@ -30,7 +30,6 @@
 			return dataFactory
 				.getData()
 				.then(function(data) {
-					console.log(data);
 					vm.foods.push(data);
 					$rootScope.searched = true;
 				})
@@ -54,10 +53,5 @@
 			if(!duplicate)
 				addFood(data);
 		});
-		// $scope.$on('removeFood', function(event, data) {
-		// 	vm.foods.splice(data, 1);
-		// 	//Needed for the removal of the item from the table
-		// 	$scope.$apply();
-		// });
 	}
 })();

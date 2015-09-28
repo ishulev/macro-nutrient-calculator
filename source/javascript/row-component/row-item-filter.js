@@ -19,7 +19,6 @@
 					return false;
 				});
 			}
-			// return returnArray;
 		};
 	}
 })();

@@ -51,7 +51,6 @@
 						var nutrientName = proximates[j].nutrient;
 						var nutrition = {};
 						nutrition.value = realValue;
-						console.log(realValue);
 						nutrition.unit = proximates[j].unit;
 						if(i>0)
 						{

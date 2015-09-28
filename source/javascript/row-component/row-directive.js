@@ -26,10 +26,6 @@
 
 		function link(scope, element, attrs, contentDirectiveCtrl)
 		{
-			// element.on('click', function(){
-			// 	console.log(contentDirectiveCtrl);
-			// });
-			console.log('sent from rowDirective');
 			var currentNutrients = {};
 			currentNutrients.quantity = scope.vm.quantity;
 			currentNutrients.combinedNutrients = combineNutrients(scope.food.nutrients);

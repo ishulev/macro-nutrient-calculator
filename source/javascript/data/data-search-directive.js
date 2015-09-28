@@ -45,7 +45,5 @@
 			dataSearchFactory.setFoodQuery(vm.searchQuery);
 			getAllData();
 		}
-
-		// getAllData();
 	}
 })();
