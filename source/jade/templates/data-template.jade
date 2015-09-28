@@ -1,14 +1,14 @@
 section.row
-	div.table-responsive
-		table.table.table-bordered
+	div.table-responsive.col-xs-12
+		table.table
 			thead
 				tr
 					th Food
 					th Measure(grams)
 					th Measure quantities
-					th(ng-repeat="nutrient in vm.foods[0].report.food.nutrients | filter: {group : 'Proximates'}")
+					th(ng-repeat="nutrient in vm.foods[0].report.food.nutrients | rowItemFilter")
 						{{nutrient.name}}
 			tbody
 				tr(ng-repeat="food in vm.foods track by $index" row-directive row-index="{{$index}}" food="food.report.food")
 				ht
-				tr(result-directive)
+				tr.info(result-directive)

@@ -70,7 +70,7 @@
 
 		function link(scope, element, attrs, contentDirectiveCtrl){
 			scope.$on('changeQuantity', function(){
-				// console.log('chaaanged');
+				console.log('received');
 				scope.combinedNutrition = calculateNutrition(contentDirectiveCtrl.nutrients);
 			})
 		};

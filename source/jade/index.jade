@@ -6,7 +6,8 @@ html(ng-app="app" ng-strict-di)
 			h1 Hello
 			section.row
 				div.col-xs-12
-					div(content-directive)
+					h3(ng-hide="searched") Use the search form below to find the food you ate
+					div(content-directive ng-show="searched")
 					div(content-search-directive)
 		footer
 			script(src="/javascript/scripts.js")

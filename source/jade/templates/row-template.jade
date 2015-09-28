@@ -12,7 +12,7 @@ tr
 			label
 				input(type="radio" name="measures-{{food.ndbno}}" ng-value="measure.eqv" ng-model="vm.quantity")
 				{{measure.label}}
-	td(ng-repeat="nutrient in food.nutrients | rowItemFilter: food.nutrients")
-		{{nutrient.name}} {{((nutrient.value*vm.quantity)/100 | number: 2)}} {{nutrient.unit}}
+	td(ng-repeat="nutrient in food.nutrients | rowItemFilter")
+		{{((nutrient.value*vm.quantity)/100 | number: 2)}} {{nutrient.unit}}
 	td
 		button.btn.btn-danger(row-removal) Remove

@@ -18,9 +18,9 @@
 		return directive;
 	}
 
-	Controller.$inject = ['$scope', 'dataFactory'];
+	Controller.$inject = ['$scope', '$rootScope', 'dataFactory'];
 
-	function Controller($scope, dataFactory) {
+	function Controller($scope, $rootScope, dataFactory) {
 		var vm = this;
 		vm.nutrients = [];
 
@@ -30,8 +30,9 @@
 			return dataFactory
 				.getData()
 				.then(function(data) {
+					console.log(data);
 					vm.foods.push(data);
-					// console.log(data);
+					$rootScope.searched = true;
 				})
 				.catch(function(error) {
 					console.log(error);
