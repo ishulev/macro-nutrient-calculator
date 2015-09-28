@@ -1,9 +1,9 @@
 section.row
 	div.col-xs-6
 		div.input-group
-			input.form-control(type="text" ng-model="vm.searchQuery" placeholder="Search for food")
+			input.form-control(type="text" ng-model="vm.searchQuery" enter-click="vm.sendQuery()" placeholder="Search for food")
 			span.input-group-btn
-				button.btn.btn-default(type="button" ng-click="vm.sendQuery()") Go!
+				button.btn.btn-default(type="button" ng-click="vm.sendQuery()") Search!
 section.row
 	div.col-xs-12
 		div.list-group
