@@ -9,15 +9,28 @@
 	function rowItemFilterFunction() {
 		var macroNutrients = ['Protein', 'Total lipid (fat)', 'Carbohydrate, by difference'];
 		var returnArray = [];
-		return function(dataArray) {
+		return function(dataArray, result) {
 			if(dataArray)
 			{
-				return dataArray.filter(function(signularData) {
-					if (macroNutrients.indexOf(signularData.name) != -1) {
-						return true;
-					}
-					return false;
-				});
+				if(!result)
+				{
+					return dataArray.filter(function(signularData) {
+						if (macroNutrients.indexOf(signularData.name) != -1) {
+							return true;
+						}
+						return false;
+					});
+				}
+				else
+				{
+					return dataArray.filter(function(signularData) {
+						console.log(signularData);
+						// if (macroNutrients.indexOf(signularData.name) != -1) {
+						// 	return true;
+						// }
+						// return false;
+					});
+				}
 			}
 			// return returnArray;
 		};
