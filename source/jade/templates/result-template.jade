@@ -3,4 +3,4 @@ tr
 		|Percentage of calories per nutrient
 	td
 	td(ng-repeat="(name, nutrient) in combinedNutrition")
-		{{nutrient.percentage | number:0}}%
+		{{nutrient.percentage | number:0 | dataSearchFilter}}%

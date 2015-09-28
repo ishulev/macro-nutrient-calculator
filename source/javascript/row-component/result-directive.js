@@ -6,8 +6,8 @@
 		.module('app')
 		.directive('resultDirective', resultDirectiveFunction);
 
-	resultDirectiveFunction.$inject = ['$rootScope'];
-	function resultDirectiveFunction($rootScope) {
+	resultDirectiveFunction.$inject = ['$rootScope', '$filter'];
+	function resultDirectiveFunction($rootScope, $filter) {
 		var directive = {
 			restict: 'EA',
 			scope: true,
@@ -40,7 +40,7 @@
 			var combinedNutrients = {};
 			for(var i=0; i<nutrients.length; i++){
 				var currentNutrientSet = nutrients[i];
-				var quantity = currentNutrientSet.quantity;
+				var quantity = $filter('dataSearchFilter')(currentNutrientSet.quantity);
 				var proximates = currentNutrientSet.combinedNutrients.proximates;
 				for(var j=0; j<proximates.length; j++)
 				{
@@ -51,8 +51,8 @@
 						var nutrientName = proximates[j].nutrient;
 						var nutrition = {};
 						nutrition.value = realValue;
+						console.log(realValue);
 						nutrition.unit = proximates[j].unit;
-						console.log(proximates[j]);
 						if(i>0)
 						{
 							if(combinedNutrients[nutrientName])
