@@ -18,22 +18,21 @@
 		return directive;
 	}
 
-	Controller.$inject = ['$scope', 'dataFactory'];
+	Controller.$inject = ['$scope', '$rootScope', 'dataFactory'];
 
-	function Controller($scope, dataFactory) {
+	function Controller($scope, $rootScope, dataFactory) {
 		var vm = this;
-		var food_id = '09037';
 		vm.nutrients = [];
 
 		vm.foods = [];
-		dataFactory.getFoodId(food_id);
 
 		function getAllData(){
 			return dataFactory
 				.getData()
 				.then(function(data) {
+					console.log(data);
 					vm.foods.push(data);
-					// console.log(data);
+					$rootScope.searched = true;
 				})
 				.catch(function(error) {
 					console.log(error);
@@ -47,8 +46,18 @@
 		}
 
 		$scope.$on('addFoodToTable', function(event, data) {
-			// console.log(data);
-			addFood(data);
+			var duplicate = false;
+			for(var i = 0; i<vm.foods.length; i++){
+				if(vm.foods[i].report && vm.foods[i].report.food.ndbno == data)
+					duplicate = true;
+			}
+			if(!duplicate)
+				addFood(data);
 		});
+		// $scope.$on('removeFood', function(event, data) {
+		// 	vm.foods.splice(data, 1);
+		// 	//Needed for the removal of the item from the table
+		// 	$scope.$apply();
+		// });
 	}
 })();
