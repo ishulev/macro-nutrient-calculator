@@ -17,7 +17,6 @@
 
 		function link(scope, element, attrs, controllers){
 			element.on('click', function(){
-				console.log(controllers[1]);
 				var index = controllers[0].index;
 				if(controllers[1].foods.length === 1)
 					$rootScope.searched = false;
