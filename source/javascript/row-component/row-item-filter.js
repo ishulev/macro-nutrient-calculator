@@ -12,25 +12,12 @@
 		return function(dataArray, result) {
 			if(dataArray)
 			{
-				if(!result)
-				{
-					return dataArray.filter(function(signularData) {
-						if (macroNutrients.indexOf(signularData.name) != -1) {
-							return true;
-						}
-						return false;
-					});
-				}
-				else
-				{
-					return dataArray.filter(function(signularData) {
-						console.log(signularData);
-						// if (macroNutrients.indexOf(signularData.name) != -1) {
-						// 	return true;
-						// }
-						// return false;
-					});
-				}
+				return dataArray.filter(function(signularData) {
+					if (macroNutrients.indexOf(signularData.name) != -1) {
+						return true;
+					}
+					return false;
+				});
 			}
 			// return returnArray;
 		};
