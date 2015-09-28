@@ -19,9 +19,11 @@
 			element.on('click', function(){
 				console.log(controllers[1]);
 				var index = controllers[0].index;
+				if(controllers[1].foods.length === 1)
+					$rootScope.searched = false;
 				controllers[1].nutrients.splice(index, 1);
 				controllers[1].foods.splice(index, 1);
-				$rootScope.$broadcast('changeQuantity', 0);
+				$rootScope.$broadcast('changeQuantity');
 				scope.$apply();
 			})
 		}

@@ -6,8 +6,8 @@
 		.module('app')
 		.directive('resultDirective', resultDirectiveFunction);
 
-
-	function resultDirectiveFunction() {
+	resultDirectiveFunction.$inject = ['$rootScope'];
+	function resultDirectiveFunction($rootScope) {
 		var directive = {
 			restict: 'EA',
 			scope: true,
@@ -72,7 +72,8 @@
 
 		function link(scope, element, attrs, contentDirectiveCtrl){
 			scope.$on('changeQuantity', function(){
-				scope.combinedNutrition = calculateNutrition(contentDirectiveCtrl.nutrients);
+				if($rootScope.searched)
+					scope.combinedNutrition = calculateNutrition(contentDirectiveCtrl.nutrients);
 			})
 		};
 	}
