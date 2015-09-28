@@ -46,7 +46,13 @@
 		}
 
 		$scope.$on('addFoodToTable', function(event, data) {
-			addFood(data);
+			var duplicate = false;
+			for(var i = 0; i<vm.foods.length; i++){
+				if(vm.foods[i].report.food.ndbno == data)
+					duplicate = true;
+			}
+			if(!duplicate)
+				addFood(data);
 		});
 		// $scope.$on('removeFood', function(event, data) {
 		// 	vm.foods.splice(data, 1);
