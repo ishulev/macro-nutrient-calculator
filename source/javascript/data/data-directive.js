@@ -48,7 +48,7 @@
 		$scope.$on('addFoodToTable', function(event, data) {
 			var duplicate = false;
 			for(var i = 0; i<vm.foods.length; i++){
-				if(vm.foods[i].report.food.ndbno == data)
+				if(vm.foods[i].report && vm.foods[i].report.food.ndbno == data)
 					duplicate = true;
 			}
 			if(!duplicate)
