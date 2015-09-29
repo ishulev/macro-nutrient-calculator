@@ -3,7 +3,9 @@ section.row
 		div.input-group
 			input.form-control(type="text" ng-model="vm.searchQuery" enter-click="vm.sendQuery()" placeholder="Search for food")
 			span.input-group-btn
-				button.btn.btn-default(type="button" ng-click="vm.sendQuery()") Search!
+				button.btn.btn-default(type="button" ng-hide="vm.searching" ng-click="vm.sendQuery()") Search!
+				button.btn.btn-default.disabled.btn-lg(type="button" ng-show="vm.searching")
+					img(src="images/ajax-loader.gif")
 section.row
 	div.col-xs-12
 		div.list-group

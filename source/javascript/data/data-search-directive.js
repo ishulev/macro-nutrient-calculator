@@ -30,6 +30,7 @@
 				.getData()
 				.then(function(data) {
 					vm.results = data;
+					vm.searching = false;
 				})
 				.catch(function(error) {
 					console.log(error);
@@ -42,6 +43,7 @@
 
 		vm.sendQuery = function()
 		{
+			vm.searching = true;
 			dataSearchFactory.setFoodQuery(vm.searchQuery);
 			getAllData();
 		}
