@@ -62,7 +62,6 @@
 							combinedNutrients[nutrientName] = nutrition;
 						}
 					}
-					// combinedNutrients[proximates[j].name].value += proximates[j].value;
 				}
 			}
 			combinedNutrients = calculatePercentage(combinedNutrients);
@@ -71,13 +70,9 @@
 
 		function link(scope, element, attrs, contentDirectiveCtrl){
 			scope.$on('changeQuantity', function(){
-				if($rootScope.searched)
-					console.log(contentDirectiveCtrl.nutrients);
+				if($rootScope.searched && contentDirectiveCtrl.nutrients.length !== 0)
 					scope.combinedNutrition = calculateNutrition(contentDirectiveCtrl.nutrients);
 			});
-			// scope.$on('addFoodToTable', function(){
-			// 	// scope.combinedNutrition = calculateNutrition(contentDirectiveCtrl.nutrients);
-			// });
 		};
 	}
 })();
