@@ -1,0 +1,13 @@
+section.row
+	div.table-responsive.col-xs-12
+		table.table
+			thead
+				tr
+					th Food
+					th Measure(grams)
+					th(ng-repeat="nutrient in vm.foods[0].report.food.nutrients | rowItemFilter")
+						{{nutrient.name}}
+			tbody
+				tr(ng-repeat="food in vm.foods" row-directive row-index="{{$index}}" food="food.report.food")
+				ht
+				tr.info(result-directive)

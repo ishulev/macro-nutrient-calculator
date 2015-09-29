@@ -1,0 +1,19 @@
+section.row
+	div.col-xs-6
+		div.alert.alert-warning.alert-dismissible(role="alert" ng-show="vm.badSearch")
+			button.close(type="button" data-dismiss="alert" aria-label="Close")
+				span(aria-hidden="true") &times;
+			| Your input is not recognized by the external API. Please try again!
+section.row
+	div.col-xs-6
+		div.input-group
+			input.form-control(type="text" ng-model="vm.searchQuery" enter-click="vm.sendQuery()" placeholder="Search for food")
+			span.input-group-btn
+				button.btn.btn-default(type="button" ng-hide="vm.searching" ng-click="vm.sendQuery()") Search!
+				button.btn.btn-default.disabled.btn-lg(type="button" ng-show="vm.searching")
+					img(src="images/ajax-loader.gif")
+section.row
+	div.col-xs-12
+		div.list-group
+			a.list-group-item(href="#" ng-repeat="food in vm.results.list.item" ng-click="vm.addItem(food.ndbno)")
+				{{food.name}}
