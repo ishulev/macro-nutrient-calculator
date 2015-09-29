@@ -1,5 +1,11 @@
 section.row
 	div.col-xs-6
+		div.alert.alert-warning.alert-dismissible(role="alert" ng-show="vm.badSearch")
+			button.close(type="button" data-dismiss="alert" aria-label="Close")
+				span(aria-hidden="true") &times;
+			| Your input is not recognized by the external API. Please try again!
+section.row
+	div.col-xs-6
 		div.input-group
 			input.form-control(type="text" ng-model="vm.searchQuery" enter-click="vm.sendQuery()" placeholder="Search for food")
 			span.input-group-btn

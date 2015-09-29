@@ -22,6 +22,7 @@
 
 	function Controller($rootScope, dataSearchFactory) {
 		var vm = this;
+		var previousSearchQuery;
 		
 		vm.results = {};
 
@@ -29,7 +30,13 @@
 			return dataSearchFactory
 				.getData()
 				.then(function(data) {
-					vm.results = data;
+					if(data.status == 0)
+						vm.badSearch = true;
+					else
+					{
+						vm.badSearch = false;
+						vm.results = data;
+					}
 					vm.searching = false;
 				})
 				.catch(function(error) {
@@ -43,6 +50,9 @@
 
 		vm.sendQuery = function()
 		{
+			if(vm.searchQuery === previousSearchQuery)
+				return;
+			previousSearchQuery = vm.searchQuery;
 			vm.searching = true;
 			dataSearchFactory.setFoodQuery(vm.searchQuery);
 			getAllData();
