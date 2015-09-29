@@ -9,5 +9,11 @@ html(ng-app="app" ng-strict-di)
 					h3(ng-hide="searched") Use the search form below to find the food you ate
 					div(content-directive ng-show="searched")
 					div(content-search-directive)
-		footer
+		footer.footer
+			div.container
+				p.pull-left.text-muted
+					a(href="https://github.com/ivan-shulev/macro-nutrient-calculator") Code on GitHub
+				p.pull-right.text-muted
+					| Data taken from 
+					a(href="http://www.usda.gov/wps/portal/usda/usdahome") USDA
 			script(src="/javascript/scripts.js")
