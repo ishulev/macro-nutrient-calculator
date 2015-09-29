@@ -2,8 +2,8 @@ tr
 	th
 		{{food.name}}
 	td
-		input.form-control(type="number" string-to-number ng-model="vm.quantity" ng-change="vm.linkFunction()")
+		input.form-control(type="number" string-to-number min="0" ng-model="vm.quantity" ng-change="vm.linkFunction()")
 	td(ng-repeat="nutrient in food.nutrients | rowItemFilter")
-		{{((nutrient.value*vm.quantity)/100 | number: 2 | dataSearchFilter)}} {{nutrient.unit}}
+		{{((nutrient.value*vm.quantity)/100 | dataSearchFilter | rowDataFilter)}}
 	td
 		button.btn.btn-danger(row-removal) Remove
