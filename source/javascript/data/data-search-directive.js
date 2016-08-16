@@ -30,7 +30,7 @@
 			return dataSearchFactory
 				.getData()
 				.then(function(data) {
-					if(data.status == 0)
+					if(data.status == -1)
 						vm.badSearch = true;
 					else
 					{
@@ -40,7 +40,7 @@
 					vm.searching = false;
 				})
 				.catch(function(error) {
-					console.log(error);
+					// console.log(error);
 				});
 		}
 
