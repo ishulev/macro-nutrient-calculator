@@ -46,6 +46,8 @@
 
 		vm.addItem = function(ndbno){
 			$rootScope.$broadcast('addFoodToTable', ndbno);
+			vm.results = {};
+			vm.searchQuery = null;
 		}
 
 		vm.sendQuery = function()
